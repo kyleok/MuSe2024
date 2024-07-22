@@ -49,7 +49,7 @@ We recommend using a Python virtual environment. Follow these steps:
    pip install xlstm==1.0.3
    pip install dill
    ```
-Detailed verions used are available in `environment.yaml`
+Detailed versions used are available in `environment.yaml`
 
 ## Settings
 
