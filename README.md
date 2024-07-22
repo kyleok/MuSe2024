@@ -33,7 +33,7 @@ Our approach achieved significant improvements over the baseline for several att
 
 We recommend using a Python virtual environment. Follow these steps:
 
-1. Create a conda environment using the yaml file (environment_pt220cu121.yaml) from [xLSTM](https://github.com/NX-AI/xlstm)'s repo
+1. Create a conda environment using the yaml file `environment_pt220cu121.yaml` (from [xLSTM](https://github.com/NX-AI/xlstm)'s repo)
 2. Activate the environment:
    ```bash
    conda activate your_env_here
@@ -49,6 +49,7 @@ We recommend using a Python virtual environment. Follow these steps:
    pip install xlstm==1.0.3
    pip install dill
    ```
+Detailed verions used are available in `environment.yaml`
 
 ## Settings
 
