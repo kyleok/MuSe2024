@@ -48,6 +48,18 @@ PARTITION_FILES = {task: os.path.join(path_to_meta, 'partition.csv') for task,pa
 
 PERCEPTION_LABELS = ['assertiv','competent','dominant','confident','independent','enthusiastic','good_natured','sincere','collaborative','friendly','forceful','aggressive','expressive','likeable','trustworthy','intelligent','arrogant','emotional','yielding','naive','competitive','leader_like','productive','sympathetic','kind','charismatic','compassionate','warm','understanding','risk','attractive','envious','pity','angry','admiring']
 
+AMIABLE = 'amiable'
+FORCEFUL = 'forceful'
+SELFASSURED = 'self-assured'
+
+SIMILAR_ATTRIBUTE_GROUP = [AMIABLE, FORCEFUL, SELFASSURED]
+
+GROUP_LABELS = {
+    AMIABLE: ['collaborative', 'friendly', 'good_natured', 'kind', 'likeable', 'sincere', 'warm'], 
+    FORCEFUL: ['aggressive', 'assertiv', 'dominant'], 
+    SELFASSURED: ['confident', 'independent', 'leader_like']
+}
+
 current_timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")[:23]
 OUTPUT_PATH = os.path.join(BASE_PATH, 'results')
 LOG_FOLDER = os.path.join(OUTPUT_PATH, 'log_muse')

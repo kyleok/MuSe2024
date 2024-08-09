@@ -85,8 +85,6 @@ def train_model(task, model, data_loader, epochs, lr, model_path, identifier, us
         print(f'Training for Epoch {epoch}...')
         train_loss = train(model, train_loader, optimizer, loss_fn, use_gpu)
         val_loss, val_score = evaluate(task, model, val_loader, loss_fn=loss_fn, eval_fn=eval_fn, use_gpu=use_gpu)
-        wandb.log({'train_loss': train_loss, 'val_loss': val_loss, 'val_score': val_score, 'epoch': epoch,
-                   'best_val_score': best_val_score, 'best_val_loss': best_val_loss})
 
         if np.isnan(val_score):
             val_score = -0.99
@@ -115,6 +113,10 @@ def train_model(task, model, data_loader, epochs, lr, model_path, identifier, us
                 print('-' * 50)
                 break
 
+        wandb.log({'epoch': epoch, 'train_loss': train_loss, 
+                   'val_loss': val_loss, 'val_score': val_score,
+                   'best_val_score': best_val_score, 'best_val_loss': best_val_loss})
+                   
     print(f'ID/Seed {identifier} | '
           f'Best [Val {eval_metric_str}]:{best_val_score:>7.4f} | Loss: {best_val_loss:>.4f}')
 
