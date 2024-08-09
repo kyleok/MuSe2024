@@ -57,7 +57,7 @@ class SimAttTFModel(nn.Module):
             nn.Linear(d_model // 2, d_model)
         )
         self.outs = nn.ModuleDict({     ## multi-label regresesion
-                attribute: OutLayer(d_rnn_out, params.d_fc_out, params.n_targets, dropout=params.linear_dropout) for attribute in params.label_dims
+                label_dim: OutLayer(d_rnn_out, params.d_fc_out, params.n_targets, dropout=params.linear_dropout) for label_dim in params.label_dims
             })
         self.final_activation = ACTIVATION_FUNCTIONS[params.task]()
 
@@ -76,9 +76,9 @@ class SimAttTFModel(nn.Module):
             last_items = torch.stack([output[i, length - 1, :] for i, length in enumerate(src_len)])
             output = last_items
 
-        output = {}
-        for attribute in self.params.label_dims:
-            output[attribute] = self.outs[attribute](src)
-            output[attribute] = self.final_activation(output[attribute])
+        output_dict = {}
+        for label_dim in self.params.label_dims:
+            output_dict[label_dim] = self.outs[label_dim](output)
+            output_dict[label_dim] = self.final_activation(output_dict[label_dim])
 
-        return output, src
+        return output_dict, src
