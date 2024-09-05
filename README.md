@@ -17,6 +17,8 @@ If you would like to see our approach and its results please see [Our Paper](htt
 - **Similar Attribute Grouping**: Joint learning of correlated social attributes
 - **Novel Fusion Methods**: Exploration of attribute-level and uni-modal feature fusion techniques
 
+The code for text feature extraction is available in a separate repository: [MultimodalFeatureExtractor](https://github.com/0eai/MultimodalFeatureExtractor).
+
 ## Dataset
 
 We used the LMU Munich Executive Leadership Perception (LMU-ELP) dataset, which includes audio-visual recordings of CEOs presenting their companies.
